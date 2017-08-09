@@ -14,4 +14,4 @@ public class GildedRoseTest {
 //        assertEquals("fixme", app.items[0].name);
 //    }
 
-//}
+}
