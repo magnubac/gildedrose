@@ -14,4 +14,13 @@ public class GildedRoseTest {
         assertEquals("foo", app.items[0].name);
     }
 
+    @Test
+    public void sulfuras_quality_test() {
+        Item[] items = new Item[] { new Item("Sulfuras, Hand of Ragnaros", 0, 80) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(80, app.items[0].quality);
+    }
+
+
 }
