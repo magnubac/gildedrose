@@ -3,12 +3,10 @@
 node {
 	
 	stage('Build'){
-		build 'gilded rose'
+		sh "docker run -i --rm --name my-maven-project -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn clean package"
 	}
 
 	stage('Deploy'){
-		always {
-			archive 'target/gildedrose-*.jar'
-		}
+		junit **/target/surefire-reports/TEST-*.xml
 	}
 }
