@@ -1,4 +1,7 @@
+#!/usr/bin/env groov
+
 node {
 
-echo 'Hello World'
+	echo 'Hello World'
+
 }
