@@ -18,5 +18,6 @@ node {
 	stage('Javadoc'){
 		sh 'docker run -i --rm --name my-maven-project -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn site'
 		archive 'target/site/**/*'
+		publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/', reportFiles: 'index.html', reportName: 'Documentation', reportTitles: ''])
 	}
 }
