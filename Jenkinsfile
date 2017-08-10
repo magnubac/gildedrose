@@ -3,7 +3,7 @@
 node {
 
 	stage('Preparation'){
-		git credentials: '0b245a8f-f5b7-45fe-ad40-360110f071c7', url: 'git@github.com:magnubac/gildedrose.git'
+		git credentialsId: '0b245a8f-f5b7-45fe-ad40-360110f071c7', url: 'git@github.com:magnubac/gildedrose.git'
 	}
 	
 	stage('Build'){
