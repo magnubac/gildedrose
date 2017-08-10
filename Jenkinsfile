@@ -3,15 +3,11 @@
 node {
 	
 	stage('Build'){
-		withMaven(
-                maven: 'M3',
-       	        //mavenSettingsConfig: 'my-maven-settings',
-        	//mavenLocalRepo: '.repository') {
-			sh "mvn clean package"
-		}
-	)
+		docker run -i --rm --name my-maven-project -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3-jdk-8 mvn install
+	}
 
 	stage('Deploy'){
 		junit '**/target/surefire-reports/TEST-*.xml'
+		archive 'target/gildedrose-*.jar'
 	}
 }
