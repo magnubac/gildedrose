@@ -1,10 +1,15 @@
-#!/usr/bin/env groov
+#!/usr/bin/env groovy
 
 node {
 	
 	stage('Build'){
-		sh "mvn clean package"
-	}
+		withMaven(
+                maven: 'M3',
+       	        //mavenSettingsConfig: 'my-maven-settings',
+        	//mavenLocalRepo: '.repository') {
+			sh "mvn clean package"
+		}
+	)
 
 	stage('Deploy'){
 		junit '**/target/surefire-reports/TEST-*.xml'
