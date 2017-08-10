@@ -7,6 +7,6 @@ node {
 	}
 
 	stage('Deploy'){
-		junit **/target/surefire-reports/TEST-*.xml
+		junit '**/target/surefire-reports/TEST-*.xml'
 	}
 }
