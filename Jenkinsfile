@@ -2,6 +2,11 @@
 
 node {
 
-	echo 'Hello World'
+	stage('Build'){
+		build 'gilded rose'
+	}
 
+	stage('Deploy'){
+		echo 'Hello World'
+	}
 }
